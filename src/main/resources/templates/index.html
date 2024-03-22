@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #c61a09;
+        }
+
+        .blood-group-slot {
+            border: 1px solid #333;
+            padding: 20px; /* Increased padding for larger box size */
+            margin: 10px;
+            display: inline-block;
+            width: 180px; /* Set a specific width for uniform box size */
+            box-sizing: border-box; /* Include padding in the width calculation */
+            background-color: #E9ABAB;
+            border-radius: 15px;
+
+        }
+
+        .blood-group-row {
+            margin-bottom: 20px;
+        }
+        .portal-image {
+            max-width: 100%; /* Ensure the image doesn't exceed its container width */
+            height: auto; /* Maintain the aspect ratio of the image */
+            margin-bottom: 20px; /* Add some space below the image */
+        }
+        div.scroll-container {
+            overflow: auto;
+            white-space: nowrap;
+            padding: 10px;
+            margin-left: 100px;
+        }
+
+        div.scroll-container img {
+            padding: 10px;
+            height: 500px;
+            width:800px;
+            border: 1px solid #333;
+            border-radius: 15px;
+            margin-right:20px
+        }
+    </style>
+</head>
+<body>
+<div style="align-items: center;justify-content: center;height:100vh">
+    <div class="header" style="height:100px ;width:100%; background-color: #E9ABAB;justify-content: space-between;display: flex;flex:1;flex-direction: row; align-items: center">
+        <div class="header-logo" style="height:100px; width:150px; background-color: darksalmon;justify-content:center;align-items:center;display:flex;flex-direction: row; margin:5px">
+            <img src="https://static.vecteezy.com/system/resources/previews/016/547/827/non_2x/blood-donation-logo-design-blood-donation-illustration-with-blood-drop-line-concept-vector.jpg" alt="this is our logo" style="height: 100px;width: 150px;margin-right:4px"/>
+        </div>
+        <h2 style="font-size: 50px">Vitalant</h2>
+        <div style="height:100px;width:250px;align-items: center;justify-content: space-evenly;flex-direction: row">
+
+            <a   style="color:black; text-decoration:none" href="./register">
+                <button id="register" style="height:50px;width:100px;border-radius: 10px;background-color: cornsilk;margin-top:25px">
+                    Register here
+                </button>
+            </a>
+            <a  style="color:black; text-decoration:none" href=>
+                <button id="login" style="height:50px;width:100px;border-radius: 10px;background-color: cornsilk;margin-top:25px">
+                    Contact Us
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="donations" style="height:100px;align-items: center;justify-content: space-evenly;display:flex;flex: 1;flex-direction: row">
+        <button style="background-color: #E9ABAB;height:50px;width:100px;border-radius: 10px" onclick="makeRequests()" class="needBlood">Need blood</button>
+        <button style="background-color: #E9ABAB;height:50px;width:100px;border-radius: 10px" onclick="Donate()" class="Donate">Willing to Donate?</button>
+    </div>
+    <div class = "gallery" style="height:60%;align-items: center;justify-content: center;display:flex">
+        <div class="scroll-container">
+            <img src="https://th.bing.com/th/id/R.96b874d7e2db5fd2370aceacd1d92094?rik=mPR83iCrDDJfVA&riu=http%3a%2f%2fwww.gapost233.com%2fwp-content%2fuploads%2f2016%2f01%2fdonate_blood.jpg&ehk=RteWcJjMPNDBfHfCjkH61M47xeRuXv9AJzo6IJ3qyW4%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Cinque Terre">
+            <img src="https://greenbhl.com/wp-content/uploads/2020/12/1200-5480-blood-donation-photo1.jpg" alt="Forest">
+            <img src="https://regencyhealthcare.in/wp-content/uploads/2018/08/blood-donation-3.png" alt="Northern Lights">
+            <img src="https://regencyhealthcare.in/wp-content/uploads/2018/08/blood-donation-3.png" alt="Mountains">
+        </div>
+    </div>
+    <div class="bottom-tabs" style="justify-content: center;align-items: center;display: flex;flex-direction: row;flex: 1">
+        <div style="align-items: center;justify-content: space-evenly;background-color: #E9ABAB;height: 100px;width:80vw;display: flex;flex-direction: row;margin-top: 50px">
+            <div>
+                <h3>Total blood donations <span id="DonationsLength"></span></h3>
+            </div>
+            <button id="showHiddenPart" style="background-color: #E9ABAB;height:40px;width:80px;border-radius: 10px" >View More</button>
+            <div>
+                <h3>Requests made today <span id="requestsLength"></span></h3>
+            </div>
+        </div>
+    </div>
+    <div id="hiddenPart" style="margin-top: 50px;">
+        <h1>Quantity of Blood Avalilable </h1>
+        <img style="margin-top: 50px;height: 300px" class="portal-image" src="https://media.istockphoto.com/id/1315395944/photo/experienced-phlebotomist-preparing-a-woman-for-blood-draw.jpg?s=612x612&w=0&k=20&c=MX1sfSztBJIiCW0wOqxDWxLuXWOxrlTvOO6azfF2buY=" alt="">
+
+
+        <div class="blood-group-row">
+            <div class="blood-group-slot" >A+<br><h4 id="A+">5</h4></div>
+            <div class="blood-group-slot" >B+<br><h4 id="B+">7</h4></div>
+            <div class="blood-group-slot" >O+<br><h4 id="O+">2</h4></div>
+            <div class="blood-group-slot" >AB+<br><h4 id="AB+">1</h4></div>
+        </div>
+
+        <div class="blood-group-row">
+            <div class="blood-group-slot" >A-<br><h4 id="A-">4</h4></div>
+            <div class="blood-group-slot" >B-<br><h4 id="B-">7</h4></div>
+            <div class="blood-group-slot" >O-<br><h4 id="O-">0</h4></div>
+            <div class="blood-group-slot" >AB-<br><h4 id="AB-">5</h4></div>
+        </div>
+    </div>
+    <div style="height:100px;justify-content: space-evenly;align-items: center;display: flex">
+        <button style="background-color: #E9ABAB;height:40px;width:120px;border-radius: 10px">About Us</button>
+        <button style="background-color: #E9ABAB;height:40px;width:120px;border-radius: 10px">Contact Us</button>
+    </div>
+    <div id="blood-group-list">
+
+    </div>
+    <footer style="align-items: center;justify-content: center;display: flex;height:80px">
+        copyrights @Vitalant 2024
+    </footer>
+</div>
+<script>
+    document.getElementById('showHiddenPart').addEventListener('click', function() {
+        var hiddenPart = document.getElementById('hiddenPart');
+        hiddenPart.style.display = 'block'; // Show the hidden part
+        hiddenPart.scrollIntoView({ behavior: 'smooth' }); // Scroll to the hidden part
+    });
+    function isLoggedIn(){
+        const sessionToken = localStorage.getItem('sessionToken');
+        const name = localStorage.getItem('Username');
+        const updateLoginButton = document.getElementById('login')
+        const updateRegisterButton = document.getElementById('register')
+        updateLoginButton.innerText = "Contact Us";
+        updateRegisterButton.innerText = 'Register';
+    }
+    isLoggedIn();
+    async function makeRequests(){
+        let userInput = window.prompt('Please enter your username and password (separated by a comma):');
+        let [username,number,bloodGroup]=["","",""]
+        if(userInput!=null){
+            [username,number,bloodGroup] = userInput.split(',')
+            username = username.trim()
+            number = number.trim()
+            bloodGroup = bloodGroup.trim()
+        }
+        console.log(username,number,bloodGroup)
+        jsonObject = {
+            "name":username,
+            "number":number,
+            "bloodGroup":bloodGroup
+        }
+        try {
+            const response = await fetch('/bloodRequests', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonObject)
+            });
+
+            if (response.ok) {
+                // Login successful
+                console.log(response)
+                window.location.href = '/'; // Redirect to index page
+            } else {
+                // Login failed
+                console.log(response);
+                const errorMessage = await response.text();
+                alert("The message can only be sent to 1 person as this is a free trial account - Twilio");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+
+    }
+
+    async function Donate(){
+        let userInput = window.prompt('Please enter your username and password (separated by a comma):');
+        let [username,number,bloodGroup]=["","",""]
+        if(userInput!=null){
+            [username,number,bloodGroup] = userInput.split(',')
+            username = username.trim()
+            number = number.trim()
+            bloodGroup = bloodGroup.trim()
+        }
+        console.log(username,number,bloodGroup)
+        jsonObject = {
+            "name":username,
+            "number":number,
+            "bloodGroup":bloodGroup
+        }
+        try {
+            const response = await fetch('/volunteerDonation', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonObject)
+            });
+
+            if (response.ok) {
+                // Login successful
+                console.log(response)
+                window.location.href = '/'; // Redirect to index page
+            } else {
+                // Login failed
+                console.log(response);
+                const errorMessage = await response.text();
+                alert("The message can only be sent to 1 person as this is a free trial account - Twilio");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+
+    }
+
+    async function totalBloodUnits(){
+        try {
+            const response = await fetch('/totalBloodUnits', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (response!=null) {
+                const data = await response;
+                console.log(data);
+            } else {
+                // Login failed
+                console.log(response);
+                const errorMessage = await response.text();
+                alert("there was error in loggin in \n 1.check username and password\n 2.check internet connectivity");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    totalBloodUnits()
+    fetch('/bloodRequests/numberOfRequests')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById('requestsLength').innerText = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    fetch('/bloodRequests/numberOfDonations')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById('DonationsLength').innerText = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+</script>
+</body>
+</html>
+
+
