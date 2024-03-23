@@ -1,4 +1,4 @@
-# Default ignored files
+git # Default ignored files
 /shelf/
 /workspace.xml
 # Editor-based HTTP Client requests
@@ -6,3 +6,4 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+//git remote set-url origin  https://github.com/AravindKVishwanath/Vitalant.git
