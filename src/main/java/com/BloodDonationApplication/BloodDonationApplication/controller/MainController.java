@@ -1,15 +1,11 @@
 package com.BloodDonationApplication.BloodDonationApplication.controller;
 
-import com.BloodDonationApplication.BloodDonationApplication.model.Session;
-import com.BloodDonationApplication.BloodDonationApplication.repository.SessionRepo;
 import com.BloodDonationApplication.BloodDonationApplication.services.LoginService;
 import com.BloodDonationApplication.BloodDonationApplication.services.MessageSenderService;
 import org.json.simple.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.*;
 
 import com.BloodDonationApplication.BloodDonationApplication.model.Admin;
@@ -21,7 +17,6 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
@@ -38,6 +33,15 @@ public class MainController {
     @GetMapping("/login")
     public String login(){
         return "Login";
+    }
+
+    @GetMapping("/RequestBlood")
+    public String RequestBlood(){
+        return "RequestBlood";
+    }
+    @GetMapping("/DonateBlood")
+    public String DonateBlood(){
+        return "DonateBlood";
     }
 
     @Autowired

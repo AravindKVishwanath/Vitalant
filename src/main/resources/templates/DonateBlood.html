@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Form</title>
+</head>
+<body>
+<form id="myForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+    <label for="number">Number:</label>
+    <input type="tel" id="number" name="number" required>
+    <br><br>
+    <label for="bloodGroup">Blood Group:</label>
+    <select id="bloodGroup" name="bloodGroup" required>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="A-">B+</option>
+        <option value="A-">B-</option>
+        <option value="A-">AB+</option>
+        <option value="A-">AB-</option>
+        <option value="A-">O+</option>
+        <option value="A-">O-</option>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const number = document.getElementById("number").value;
+        const bloodGroup = document.getElementById("bloodGroup").value;
+
+        const jsonObject = {
+            "name": username,
+            "number": number,
+            "bloodGroup": bloodGroup
+        };
+
+        // Now you can use the jsonObject just as you did in your prompt's code
+        Donate(jsonObject)
+        // Implement additional logic or calls to other functions as needed
+
+        async function Donate(){
+
+            try {
+                const response = await fetch('/volunteerDonation', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonObject)
+                });
+
+                if (response.ok) {
+                    // Login successful
+                    console.log(response)
+                    window.location.href = '/'; // Redirect to index page
+                } else {
+                    // Login failed
+                    console.log(response);
+                    const errorMessage = await response.text();
+                    alert("The message can only be sent to 1 person as this is a free trial account - Twilio");
+                    window.location.href = '/'; // Redirect to index page
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

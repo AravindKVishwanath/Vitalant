@@ -140,84 +140,13 @@
         updateRegisterButton.innerText = 'Register';
     }
     isLoggedIn();
-    async function makeRequests(){
-        let userInput = window.prompt('Please enter your username and password (separated by a comma):');
-        let [username,number,bloodGroup]=["","",""]
-        if(userInput!=null){
-            [username,number,bloodGroup] = userInput.split(',')
-            username = username.trim()
-            number = number.trim()
-            bloodGroup = bloodGroup.trim()
-        }
-        console.log(username,number,bloodGroup)
-        jsonObject = {
-            "name":username,
-            "number":number,
-            "bloodGroup":bloodGroup
-        }
-        try {
-            const response = await fetch('/bloodRequests', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jsonObject)
-            });
-
-            if (response.ok) {
-                // Login successful
-                console.log(response)
-                window.location.href = '/'; // Redirect to index page
-            } else {
-                // Login failed
-                console.log(response);
-                const errorMessage = await response.text();
-                alert("The message can only be sent to 1 person as this is a free trial account - Twilio");
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+     function makeRequests(){
+         window.location.href = '/RequestBlood'
 
     }
 
     async function Donate(){
-        let userInput = window.prompt('Please enter your username and password (separated by a comma):');
-        let [username,number,bloodGroup]=["","",""]
-        if(userInput!=null){
-            [username,number,bloodGroup] = userInput.split(',')
-            username = username.trim()
-            number = number.trim()
-            bloodGroup = bloodGroup.trim()
-        }
-        console.log(username,number,bloodGroup)
-        jsonObject = {
-            "name":username,
-            "number":number,
-            "bloodGroup":bloodGroup
-        }
-        try {
-            const response = await fetch('/volunteerDonation', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jsonObject)
-            });
-
-            if (response.ok) {
-                // Login successful
-                console.log(response)
-                window.location.href = '/'; // Redirect to index page
-            } else {
-                // Login failed
-                console.log(response);
-                const errorMessage = await response.text();
-                alert("The message can only be sent to 1 person as this is a free trial account - Twilio");
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-
+         window.location.href = "/DonateBlood"
     }
 
     async function totalBloodUnits(){
