@@ -30,10 +30,7 @@ public class MainController {
         return "Registration";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "Login";
-    }
+
 
     @GetMapping("/RequestBlood")
     public String RequestBlood(){
