@@ -11,4 +11,3 @@ public class BloodDonationApplication {
 	}
 
 }
-//git remote add https://github.com/AravindKVishwanath/BloodDonationApplication/.git

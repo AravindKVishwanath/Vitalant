@@ -164,8 +164,10 @@ public class MainController {
 
 @Getter
 class LoginRequest{
+    @Getter
     private String name;
     private String password;
+
 
 }
 @Getter

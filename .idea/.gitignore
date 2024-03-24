@@ -6,4 +6,3 @@ git # Default ignored files
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-//git remote set-url origin  https://github.com/AravindKVishwanath/Vitalant.git
